@@ -1,7 +1,9 @@
 
+import DriverFactory.DriverFactory;
 import org.openqa.selenium.chrome.ChromeOptions;
 import pages.WikiLoginPage;
 import pages.WikiMain;
+import DriverFactory.DriverType;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,10 +21,7 @@ public class FirstTest {
 
     @BeforeEach
     void setUp(){
-        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\Drivers\\chromedriver.exe");
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        driver = new ChromeDriver(options);
+        driver = DriverFactory.getDriver(DriverType.CHROME);
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://www.wikipedia.org/");
