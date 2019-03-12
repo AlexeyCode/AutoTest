@@ -1,12 +1,10 @@
 
 import DriverFactory.DriverFactory;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.chrome.ChromeOptions;
 import pages.WikiLoginPage;
 import pages.WikiMain;
 import DriverFactory.DriverType;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
@@ -14,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-public class FirstTest {
+public class PageObjectTests {
     private WebDriver driver;
     private WikiMain wikiMain;
     private WikiLoginPage wikiLoginPage;
@@ -22,8 +20,6 @@ public class FirstTest {
     @BeforeEach
     void setUp(){
         driver = DriverFactory.getDriver(DriverType.CHROME);
-        driver.manage().deleteAllCookies();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://www.wikipedia.org/");
     }
 

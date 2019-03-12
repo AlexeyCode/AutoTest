@@ -7,6 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 
 public class DriverFactory {
@@ -16,7 +17,10 @@ public class DriverFactory {
         System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\Drivers\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
-        return new ChromeDriver(options);
+        WebDriver driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().deleteAllCookies();
+        return driver;
     };
 
     private static final Supplier<WebDriver> fireFoxSupplier = () -> {
