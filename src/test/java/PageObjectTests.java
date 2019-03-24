@@ -1,13 +1,10 @@
 
 import DriverFactory.DriverFactory;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.chrome.ChromeOptions;
 import pages.WikiLoginPage;
 import pages.WikiMain;
 import DriverFactory.DriverType;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -19,7 +16,7 @@ public class PageObjectTests {
 
     @BeforeEach
     void setUp(){
-        driver = DriverFactory.getDriver(DriverType.CHROME);
+        driver = DriverFactory.getDriver(DriverType.IE);
         driver.get("https://www.wikipedia.org/");
     }
 
