@@ -14,7 +14,7 @@ public class RestTest {
     void restTest() throws JSONException {
         Response response = get("http://restcountries.eu/rest/v1/name/russia");
         JSONArray jsonResponse = new JSONArray(response.asString());
-        String change;
+        String change1;
         System.out.println(jsonResponse);
         String capital = jsonResponse.getJSONObject(0).getString("capital");
 
