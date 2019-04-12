@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="autoTest" />
         <module name="AutoTest" />
+        <module name="AutRestor" />
       </profile>
     </annotationProcessing>
   </component>
